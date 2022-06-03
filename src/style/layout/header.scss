@@ -1,0 +1,221 @@
+@use '../../style/common/help.scss';
+
+.employ__container__header {
+  height: 48px;
+  display: flex;
+  & .left {
+    display: flex;
+    align-items: center;
+    & .more {
+      cursor: pointer;
+      background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -847px -35px;
+      width: 16px;
+      height: 14px;
+      margin: 0 20px 0 16px;
+    }
+    & .select__company {
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: notosansSemiBold;
+      font-size: 1.4rem;
+      white-space: nowrap;
+      & span {
+        
+      }
+      &__icon {
+        background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -1129px -365px;
+        width: 14px;
+        height: 8px;
+        margin: 0 8px;
+      }
+    }
+    & .select__dtb {
+      margin-left: 16px;
+      border-radius: 20px;
+      border: 1px solid #ebedf0;
+      height: 30px;
+      padding: 0 12px;
+      min-width: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 30px;
+      font-size: 1.3rem;
+      position: relative;
+      white-space: nowrap;
+      cursor: pointer;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 16px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: help.$main-color;
+      }
+    }
+  }
+  & .right {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+    & .down__excel {
+      cursor: pointer;
+      margin-right: 20px;
+      &__icon {
+        background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -2144px -200px;
+        width: 25px;
+        height: 24px;
+      }
+      &:hover .down__excel__icon {
+        background-position: -2048px -200px;
+      }
+    }
+    & .header__input__wrap {
+      margin-right: 20px;
+      display: none;
+    }
+
+    @media (min-width: 1113px) {
+      .header__input__wrap {
+        display: block;
+      }
+    }
+    & .header__tool__icon__wrap {
+      height: 100%;
+      width: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      position: relative;
+      & .ticker__new__tag {
+        z-index: 1;
+        background-color: #ff7f2c;
+        border-radius: 10px;
+        height: 18px;
+        font-size: 1rem;
+        padding: 2px 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        position: absolute;
+        top: 6px;
+        right: -5px;
+      }
+      &.ticker__new {
+        & .ticker__new__tag {
+
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 100%;
+        border-style: solid;
+        border-color: help.$main-color transparent transparent transparent;
+        border-width: 8px 22px;
+        z-index: 1;
+        display: none;
+      }
+      &:hover {
+        background-color: help.$main-color;
+        &::after {
+          display: block;
+        }
+        & .tool__more {
+          background-position:  -568px -76px;
+          width: 24px;
+          height: 24px;
+        }
+        & .tool__setting {
+          background-position:  -145px -88px;
+          width: 23px;
+          height: 24px;
+        }
+        & .tool__chat {
+          background-position:  -368px -88px;
+          width: 24px;
+          height: 25px;
+        }
+        & .tool__help {
+          
+          background-position:  -201px -89px;
+          width: 22px;
+          height: 22px;
+        }
+        & .tool__bell {
+          background-position:  -257px -88px;
+          width: 22px;
+          height: 25px;
+        }
+      }
+      
+    }
+
+    & .header__tool__icon {
+      background-color: black;
+    }
+    & .tool__more {
+      background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -568px -30px;
+      width: 24px;
+      height: 24px;
+    }
+    & .tool__setting {
+      background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -676px -30px;
+      width: 23px;
+      height: 24px;
+    }
+    & .tool__chat {
+      
+      background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -899px -30px;
+      width: 24px;
+      height: 25px;
+    }
+    & .tool__help {
+      background: url('../../assets/Resource/img/Sprites.64af8f61.svg') -732px -31px;
+      width: 22px;
+      height: 22px;
+    }
+    & .tool__bell {
+      background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -788px -30px;
+      width: 22px;
+      height: 25px;
+    }
+    & .avt {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: rgb(233, 233, 233);
+      margin-right: 8px;
+      margin-left: 16px;
+      cursor: pointer;
+    }
+    & .user {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      max-width: 180px;
+      margin-right: 36px;
+      & .name {
+        font-size: 1.4rem;
+        font-family: notosansSemiBold;
+        white-space: nowrap;
+      }
+      & .icon {
+        background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -467px -414px;
+        width: 10px;
+        height: 5px;
+        margin-left: 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,231 @@
+@use '../common/help.scss';
+@keyframes showModified {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  } to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.base-modified-wrap {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+  
+}
+.base-modified {
+  position: absolute;
+  padding: 16px;
+  padding-bottom: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 800px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  transition: linear 0.1s;
+  animation-timing-function: linear;
+  animation: showModified 0.2s linear;
+  &.active {
+    width: calc(100% - 6px);
+    & .modified__more__icon {
+      background-position: -84px -361px;
+    }
+  }
+  & .modified__more {
+    cursor: pointer;
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-100%);
+    width: 12px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    &__icon {
+      background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -36px -361px;
+      width: 8px;
+      height: 14px;
+    }
+  }
+  
+  & .modified__title {
+    position: relative;
+    margin-bottom: 20px;
+    & h2 {
+      font-size: 2.4rem;
+      line-height: 3.3rem;
+      font-family: notosansBold;
+    }
+
+    & .modified__title__ic {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      display: flex;
+    }
+
+    & .modified__title__icon__wrap {
+      margin: 0 4px;
+      height: 24px;
+      width: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      & .modified__title__icon {
+
+        &.modified__help {
+          background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -89px -145px;
+          width: 22px;
+          height: 22px;
+        }
+        &.modified__close {
+          background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -147px -147px;
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+    }
+  }
+
+  & .modified__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    & .modifiel__detail {
+      color: #137fc5;
+      font-size: 1.3rem;
+      min-width: 380px;
+      display: flex;
+      justify-content: flex-end;
+      line-height: 1.8rem;
+      cursor: pointer;
+    }
+  }
+
+  & .modified__content {
+    padding-bottom: 20px;
+    flex: 1;
+    overflow: auto;
+    & .table-wrap {
+      margin-bottom: 16px;
+      & table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        & th, td{
+          padding: 0 10px;
+        }
+        & .row__check-box {
+          width: 18px;
+          height: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #afafaf;
+          background-color: white;
+          border-radius: 2px;
+          transform: rotate(-90deg);
+          transition: linear 0.1s;
+          cursor: pointer;
+          & .row__check-box-b {
+          }
+          &.active {
+            border: 1px solid help.$main-color;
+          transform: rotate(0deg);
+            
+            & .row__check-box-b {
+              background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -1225px -363px;
+              width: 14px;
+              height: 11px;
+            }
+          }
+        }
+        & thead {
+          & tr {
+            & th {
+              position: sticky;
+              top: 0;
+              z-index: 1;
+              text-transform: uppercase;
+              white-space: nowrap;
+              font-size: 1.2rem;
+              font-weight: 600;
+              color: #111111;
+              background-color: #e5e8ec;
+              height: 34px;
+              border-bottom: 2px solid #ccc;
+              & div {
+                display: flex;
+                justify-content: flex-start;
+              }
+              &:first-child {
+                width: 36px;
+                padding: 10px;
+              }
+              
+            }
+          }
+        }
+        & tbody {
+          font-size: 1.3rem;
+          & tr {
+            
+            & td {
+              height: 44px;
+              border-bottom: 1px solid #ccc;
+            }
+            & .drag {
+              cursor: pointer;
+              display: flex;
+              justify-content: center;
+              & .drag-icon {
+                background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -419px -363px;
+                width: 10px;
+                height: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    & .show__more {
+      font-size: 1.3rem;
+      color: #0075c0;
+      cursor: pointer;
+    }
+  }
+
+  & .modified__bottom {
+    margin-left: -16px;
+    padding: 11px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & .btn__wrap {
+     display: flex;
+     padding: 0 10px;   
+    }
+    &__left {
+      display: flex;
+      align-items: center;
+    }
+    &__right {
+      display: flex;
+      align-items: center;
+      
+    }
+  }
+}

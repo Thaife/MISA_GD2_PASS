@@ -1,0 +1,609 @@
+.overlay__disable {
+  position: absolute;
+  display: none;
+  top: 0;
+  height: 100vh;
+  left: 0;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  z-index: 100;
+}
+
+@keyframes blur {
+  from {
+    opacity: 0;
+  }to {
+    opacity: 1;
+  }
+}
+
+.view-popupDetailsTransaction-wrap {
+  z-index: 11;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  // overflow-y: auto;
+  animation: blur linear 0.1s;
+}
+
+.view-popupDetailsTransaction {
+  height: 100vh;
+  background-color: white;
+  overflow: auto;
+  padding-bottom: 50px;
+  & .details__transaction__header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background-color: #eceef1;
+    padding: 16px 16px 20px;
+    display: flex;
+    align-items: center;
+
+    & .recently {
+      display: flex;
+      align-items: center;
+      & .recently__icon {
+        background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -648px -145px;
+        width: 24px;
+        height: 23px;
+      }
+      & h2.recently__text {
+        font-size: 2.4rem;
+        line-height: 3.6rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 12px;
+      }
+    }
+    & .payment__type {
+      padding-left: 24px;
+      flex: 1;
+    }
+    & .details__btn {
+      display: flex;
+      align-items: center;
+      &__instructions {
+        display: flex;
+        margin: 0 12px;
+        
+        &__icon-wrap {
+          display: flex;
+          align-items: center;
+          width: 40px;
+          height: 36px;
+          justify-content: center;
+          cursor: pointer;
+        }
+        &__icon {
+          background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -984px -145px;
+          width: 23px;
+          height: 22px;
+        }
+        &__text {
+          display: flex;
+          align-items: center;
+          font-size: 1.3rem;
+          color: #0075c0;
+          cursor: pointer;
+          padding-left: 5px;
+          white-space: nowrap;
+          position: relative;
+          top: -3px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      &__wrap__icon {
+        display: flex;
+        align-items: center;
+        width: 40px;
+        height: 36px;
+        justify-content: center;
+        cursor: pointer;
+        &:hover {
+          background-color: #ccc;
+        }
+      }
+      &__help__icon {
+        background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -732px -31px;
+        width: 22px;
+        height: 22px;
+      }
+      &__setting__icon {
+          background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -676px -30px;
+          width: 23px;
+          height: 24px;
+      }
+      &__close__icon {
+        background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -147px -147px;
+          width: 18px;
+          height: 18px;
+      }
+    }
+  }
+
+  & .details__transaction__infor {
+    position: sticky;
+    left: 0;
+    background-color: #eceef1;
+    padding: 8px 24px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 12;
+    
+    &__left {
+      color: black;
+      font-family: notosansBold;
+      font-size: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      padding-right: 16px;
+      & .transaction__infor__item {
+        padding-bottom: 12px;
+        & span {
+          line-height: 2.2rem;
+        }
+        
+      }
+    }
+    &__right {
+      font-family: notosansBold;
+      font-size: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      & .transaction__infor__item {
+        position: relative;
+        padding: 0 0 0 16px;
+        & span {
+          line-height: 2.2rem;
+        }
+        & .date__title__warring {
+          display: none;
+          position: absolute;
+          top: calc(100% - 6px);
+          left: -60px;
+          width: 400px;
+          background-color: #ff7777;
+          color: white;
+          line-height: 1.4;
+          font-family: notosansRegular;
+          font-size: 1.3rem;
+          border-radius: 3px;
+          padding: 6px 8px;
+          z-index: 10;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: -12px;
+            transform: translateX(-50%);
+            border-color: transparent transparent #ff7777 transparent;
+            border-style: solid;
+            border-width: 6px;
+          }
+        }
+        
+        &.date__picker.warring {
+          & input {
+            border: 1px solid red;
+          }
+          & .mx-datepicker:hover +.date__title__warring {
+            display: block;
+          }
+        }
+        & .mx-datepicker {
+          & input {
+            color: black;
+          }
+        }
+      }
+      & .details__transaction__total__cash {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        right: 0;
+        top: 5%;
+        & span {
+          font-size: 1.3rem;
+          line-height: 1.5rem;
+          font-family: notosansRegular;
+        }
+        & div {
+          font-size: 3.6rem;
+          line-height: 4rem;
+          font-family: notosansBold;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+    &__bottom {
+      display: flex;
+      flex-wrap: wrap;
+      font-family: notosansBold;
+      font-size: 1.2rem;
+      & .transaction__infor__item {
+        padding: 0 12px 12px 0px;
+      }
+      & span {
+        line-height: 2.2rem;
+      }
+      & .transaction__infor__item__input__wrap {
+        display: flex;
+        align-items: center;
+        
+        & .transaction__infor__item__descri {
+          white-space: nowrap;
+          font-family: notosansRegular;
+          padding: 0 7px;
+          font-size: 1.3rem;
+        }
+      }
+    }
+    & .details__transaction__reference {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      & span {
+        font-size: 1.3rem;
+      }
+      & div {
+        padding: 4px 12px;
+        cursor: pointer;
+        color: #0075c0;
+        font-weight: bold;
+      }
+    }
+  }
+  & .details__transaction__accounting__header {
+    position: sticky;
+    z-index: 3;
+    left: 0;
+    padding: 16px 24px;
+    display: flex;
+    justify-content:   space-between;
+    align-items: center;
+    padding: 16px 0 16px 26px;
+    & > span {
+      position: relative;
+      top: -6px;
+      font-size: 1.3rem;
+      font-family: notosansBold;
+      color: #0075c0;
+      text-decoration: underline;
+    }
+    & .details__accounting {
+      display: flex;
+      align-items: center;
+      padding-right: 20px;
+      & span {
+        font-size: 1.3rem;
+        margin: 0 10px 0 20px;
+      }
+    }
+    & .exchange__rate {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  & .details__transaction__accounting__table {
+    & > table {
+      // padding-bottom: 100px;
+        //position: relative;
+        height: 100%;
+        width: 100%;
+        font-size: 1.3rem;
+        border-spacing: 0;
+        & > tbody > tr > td {
+          border-bottom: 1px solid #c7c7c7;
+        }
+        & > thead {
+            & tr {
+              border-spacing: 0;
+              & th {
+                border-left: 1px solid #c7c7c7;
+              }
+              & th:first-child {
+                position: sticky;
+                left: 0;
+                background-color: white;
+              }
+              & th:nth-child(2) {
+                position: sticky;
+                left: 24px;
+                border-right: 1px solid #c7c7c7;
+                border-left: none;
+              }
+              & th:nth-child(3) {
+                border-left: none;
+              }
+              & th:nth-last-child(2) {
+                border-right: none;
+                position: sticky;
+                right: 24px;
+                z-index: 1;
+                
+              }
+              & th:last-child {
+                position: sticky;
+                right: 0;
+                background-color: white;
+                border-left: none;
+              } 
+            }
+            & th div {
+              white-space : nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+            & > tr {
+              padding: 10px 10px;
+              & > th {
+                padding: 10px 10px;
+              }
+              & > td {
+                padding: 10px 10px;
+              }
+            }
+        }
+        & > tbody {
+          & > tr {
+            & > td+td {
+              border-left: 1px dotted #c7c7c7;
+            }
+            background-color: white;
+            &:hover {
+                background-color: #f2f9ff;
+                & > td:nth-child(2) {
+                  background-color: #f2f9ff;
+                }
+                & > td:nth-last-child(2) {
+                  background-color: #f2f9ff;
+                }
+            }
+            & > td:first-child {
+              position: sticky;
+              border-bottom: none;
+              left: 0;
+              background-color: white;
+              z-index: 1;
+            }
+            & > td:nth-child(2) {
+                border-right: 1px dotted #c7c7c7;
+                position: sticky;
+                left: 24px;
+                z-index: 10;
+                border-left: none;
+                background-color: white;
+            }
+            & > td:nth-child(3) {
+              border-left: none;
+              z-index: 0;
+            }
+            & > td:nth-last-child(2) {
+              border-right: none;
+              position: sticky;
+              right: 24px;
+              z-index: 2;
+              background-color: white;
+              & .remove__wrap {
+                cursor: pointer;
+                &__icon {
+                  background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -464px -313px;
+                  width: 15px;
+                  height: 15px;
+                }
+              }
+            }
+            & > td:last-child {
+                border-right: none;
+                border-left: none;
+                border-bottom: none;
+                position: sticky;
+                background-color: white;
+                right: 0;
+                z-index: 1;
+            }
+            
+          }
+
+          & > tr {
+            padding: 10px 10px;
+            & > th {
+              padding: 10px 10px;
+            }
+            & > td {
+              padding: 10px 10px;
+            }
+          }
+          
+          & .cbb__icon-wrap {
+            border-left: none;
+          }
+        }
+
+        & > tfoot {
+          & tr {
+            border-spacing: 0;
+            & th {
+            
+            }
+            & th:first-child {
+              position: sticky;
+              left: 0;
+              background-color: white;
+            }
+            & th:nth-child(2) {
+              position: sticky;
+              left: 24px;
+
+            }
+
+            & th:nth-last-child(2) {
+              position: sticky;
+              right: 24px;
+              z-index: 1;
+              
+            }
+            & th:last-child {
+              position: sticky;
+              right: 0;
+              background-color: white;
+            } 
+          }
+
+          & > tr {
+            padding: 10px 10px;
+            & > th {
+              padding: 10px 10px;
+            }
+            & > td {
+              padding: 10px 10px;
+            }
+          }
+        }
+
+        
+        
+        & tbody td .row__check-box{
+            display: flex;
+        }
+        
+
+        & tr {
+            & th {
+                font-size: 1.3rem;
+                background-color: #e5e8ec;
+            }
+            &:last-child td {
+                border-bottom: none;
+            }
+        }
+        
+        
+        
+    }
+    & table,tr, th, td {
+        & tr, th, td {
+            //border: 1px solid help.$border-table;
+            border-collapse: separate;
+            line-height: 1.4;
+        }
+        
+    }
+  }
+
+  & .details__transaction__controls {
+    position: sticky;
+    left: 0;
+    margin-top: 16px;
+    padding: 0 30px;
+    & .btns__control {
+      display: flex;
+      margin-bottom: 16px;
+      & .details__transaction__btn {
+        cursor: pointer;
+        padding: 0 16px;
+        height: 24px;
+        border: 1px solid #8d9096;
+        border-radius: 2px;
+        margin: 0 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #111;
+        font-family: notosansBold;
+        font-size: 1.2rem;
+      }
+
+    }
+    & .details__transaction__upload {
+      &__header {
+        display: flex;
+        align-items: center;
+        margin: 4px 0 8px;
+      }
+      &__item {
+        background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -539px -202px;
+        width: 18px;
+        height: 19px;
+      }
+      &__title {
+        font-size: 1.2rem;
+        font-family: notosansBold;
+        margin: 0 16px 0 8px;
+      }
+      &__note {
+        color: #757575;
+        font-size: 1.2rem;
+      }
+
+      & .details__transaction__upload__input {
+        & .details__transaction__upload__box {
+          width: 340px;
+          height: 50px;
+          border: 1px solid #babec5;
+          border-radius: 2px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: notosansItalic;
+          color: #aeafb3;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  & .details__transaction__clear {
+    height: 26px;
+  }
+
+  & .popupDetailsTransaction__footer {
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    height: 50px;
+    background-color: #38393d;
+    justify-content: space-between;
+    padding: 0 16px;
+    & .base-button {
+      color: white;
+    }
+    & .base-button_icon-icon-wrap {
+      width: 32px;
+    }
+    & .base-button_icon {
+      padding-right: 32px;
+    }
+    &__left {
+      display: flex;
+      align-items: center;
+    }
+    &__right {
+      display: flex;
+      align-items: center;
+
+    }
+  }
+
+}
+
+.mgin-r-12 {
+  margin-right: 12px;
+}
+.padd-r-12 {
+  padding-right: 12px;
+}

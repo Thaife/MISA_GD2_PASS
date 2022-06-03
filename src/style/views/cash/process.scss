@@ -1,0 +1,163 @@
+@use "../../../style/common/help.scss";
+.cash__process-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & .cash__process {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &-major-and-dictionary {
+      width: 690px;
+      & .cash__process__major {
+        background-color: white;
+        height: 380px;
+        & .process__major__header {
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          font-family: notosansBold;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid #e5e5e5;
+        }
+        & .process__major__content {
+          position: relative;
+          height: calc(100% - 40px);
+          &__image {
+            height: 100%;
+            background-image: url("https://actappg1.misacdn.net/img/qt_TienMat.1f64b87b.svg");
+            background-repeat: no-repeat;
+          }
+          & .process__major__face {
+            width: 90px;
+            padding-top: 70px;
+            padding-bottom: 10px;
+            font-size: 1.3rem;
+            position: absolute;
+            transition: all .2s ease;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+              box-shadow: 0 3px 6px rgb(0 0 0 / 25%);
+            }
+            &.process__major__face-receive {
+              position: absolute;
+              left: 90px;
+              top: 34px;
+            }
+            &.process__major__face-pay {
+              position: absolute;
+              left: 90px;
+              top: 210px;
+            }
+            &.process__major__face-audit {
+              position: absolute;
+              left: 351px;
+              top: 122px;
+            }
+          }
+        }
+      }
+    }
+    &__dictionary {
+      height: 70px;
+      display: flex;
+      background-color: white;
+      margin-top: 10px;
+      & .cash__dictionary__item {
+        height: 100%;
+        width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #e5e5e5;
+        flex-direction: column;
+        color: #111111;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0 3px 6px rgb(0 0 0 / 25%);
+        }
+        
+        & span {
+          font-size: 1.3rem;
+          line-height: 2.2rem;
+          white-space: nowrap;
+        }
+      }
+
+      & .cash__dictionary__provider {
+        & .cash__dictionary__item__img {
+          background: url('../../../src/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -930px -202px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+      & .cash__dictionary__account {
+        & .cash__dictionary__item__img {
+          background: url('../../../src/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -1378px -257px;
+          width: 21px;
+          height: 22px;
+        }
+      }
+    }
+    &__report {
+      margin-left: 10px;
+      background-color: white;
+      width: 300px;
+      & .cash__report__header {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        font-family: notosansBold;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      & .cash__report__list {
+        & .cash__report__list__item {
+          height: 74px;
+          display: flex;
+          align-items: center;
+          padding-left: 30px;
+          position: relative;
+          font-size: 1.3rem;
+          line-height: 100%;
+          cursor: pointer;
+          &:hover {
+            color: rgb(0, 117, 192);
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            left: 14px;
+            border-radius: 100%;
+            background-color: grey;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 90%;
+            left: 5%;
+            border-bottom: 1px solid rgb(229, 229, 229);
+          }
+        }
+        & .cash__report__more__all {
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.3rem;
+          color: rgb(0, 117, 192);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

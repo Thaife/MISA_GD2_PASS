@@ -1,0 +1,198 @@
+@use '../common/help.scss';
+.base-multi-select {
+  border: 1px solid #babec5;
+  z-index: 1;
+  position: relative;
+  border-radius: 2px;
+  font-size: 1.3rem;
+  display: flex;
+  &.disable {
+    background-color: #edeef0;
+  } 
+    & .input__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        position: relative;
+        flex-grow: 1;
+        padding-right: 68px;
+        & .multi__box__checked__item {
+          border-radius: 3px;
+          position: relative;
+          display: inline-flex;
+          border: 1px solid #ccc;
+          background-color: #f0f0f0;
+          color: #111111;
+          padding: 5px;
+          padding-right: 20px;
+          margin: 4px;
+          &__icon {
+            background-image: url("@/assets/Resource/img/Sprites.64af8f61.svg");
+            background-position: -80px -312px;
+            width: 16px;
+            height: 16px;
+              position: absolute;
+              top: 50%;
+              transform: translateY(-60%);
+              right: 3px;
+              font-weight: bold;
+              cursor: pointer;
+          }
+        }
+        & input {
+            border: none;
+            height: 100%;
+            flex: 1;
+            outline: none;
+            padding-left: 8px;
+        }
+        
+
+        
+    }
+    & .multi__select__action {
+      & .cbb__icon__add-wrap {
+        width: 32px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 32px;
+        cursor: pointer;
+        &:hover {
+          background-color: #ccc;
+        }
+      & .cbb__icon__add {
+        background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -34px -314px;
+        width: 12px;
+        height: 12px;
+      }
+      }
+      & .cbb__icon-wrap {
+        width: 32px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        cursor: pointer;
+        border-left: 1px solid #babec5;
+        
+        &:hover {
+          background-color: #ccc;
+        }
+        
+        & .cbb__icon-hide {
+          background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -564px -365px;
+          width: 8px;
+          height: 5px;
+          position: absolute;
+        }
+        & .cbb__icon-show {
+          background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -564px -365px;
+          width: 8px;
+          height: 5px;
+          position: absolute;
+          transform: rotate(180deg);
+        }
+      }
+    }
+    
+}
+.multi_cbb__list {
+  z-index: 10;
+  position: fixed;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #babec5;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  & table {
+    border-collapse: collapse;
+    color: #111;
+    font-size: 1.3rem;
+    & thead {
+      
+      & th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: #f4f5f8;
+      }
+    }
+    & tr {
+      height: 32px;
+    }
+    & .cbb__item__col {
+      text-align: left;
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+    & tbody {
+      margin-top: 4px;
+      & tr {
+        & td {
+          background-color: white;
+        }
+        cursor: pointer;
+        position: relative;
+        &::after {
+          content: "";
+          display: flex;
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          height: 100%;
+          transform: translateY(-50%);
+          
+        }
+        & td:last-child  {
+          padding-right: 100px;
+        }
+        &:hover {
+          background-color: #ebedf0;
+          color: help.$main-color;
+        }
+        &.active {
+          background-color: #ebedf0;
+          color: help.$main-color;
+        }
+        &.checked {
+          &::after {
+            background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -1225px -363px;
+          width: 14px;
+          height: 11px;
+          }
+        }
+      }
+
+      & .checked-icon {
+        background: url("../../assets/Resource/img/Sprites.64af8f61.svg") no-repeat;
+        background-position: -896px -312px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+  
+
+  &__item {
+      height: 38px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+      cursor: pointer;
+      &:hover {
+          background-color: #ccc
+      }
+      &.active {
+          background-color: #ccc
+      }
+  }
+}

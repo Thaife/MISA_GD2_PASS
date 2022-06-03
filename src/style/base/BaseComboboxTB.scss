@@ -1,0 +1,156 @@
+@use '../common/help.scss';
+.base-multi-select {
+  position: relative;
+    border-radius: 2px;
+    font-size: 1.3rem;
+}
+.base-cbb-tb {
+    position: relative;
+    border-radius: 2px;
+    font-size: 1.3rem;
+    &.disable {
+      background-color: #eceef1;
+    }
+    & .input__wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        & input {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%;
+          border: 1px solid #babec5;
+            height: 100%;
+            flex: 1;
+            outline: none;
+            padding-right: 62px;
+            padding-left: 8px;
+            &:focus {
+
+          border: 1px solid help.$main-color;
+            }
+        }
+        & .cbb__icon-wrap {
+            width: 32px;
+            height: calc(100% - 2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            cursor: pointer;
+            border-left: 1px solid #babec5;
+            
+            &:hover {
+              background-color: #ccc;
+            }
+            
+            & .cbb__icon-hide {
+              background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -564px -365px;
+              width: 8px;
+              height: 5px;
+                position: absolute;
+            }
+            & .cbb__icon-show {
+              background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -564px -365px;
+              width: 8px;
+              height: 5px;
+              position: absolute;
+              transform: rotate(180deg);
+            }
+        }
+
+        & .cbb__icon__add-wrap {
+            width: 32px;
+            height: calc(100% - 2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 1px;
+            right: 32px;
+            cursor: pointer;
+            &:hover {
+              background-color: #ccc;
+            }
+          & .cbb__icon__add {
+            background: url('../../assets/Resource/img/Sprites.64af8f61.svg') no-repeat -34px -314px;
+            width: 12px;
+            height: 12px;
+          }
+        }
+    }
+}
+.cbb__tb__list {
+  background-color: white;
+  z-index: 100;
+  position: fixed;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #babec5;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  & table {
+    border-collapse: collapse;
+    color: #111;
+    font-size: 1.3rem;
+    & thead {
+
+      & th {
+        background-color: #f4f5f8;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
+    }
+    & tr {
+      height: 32px;
+    }
+    & .cbb__item__col {
+      text-align: left;
+      padding: 4px 10px;
+      white-space: nowrap;
+      & div {
+        line-height: 200%;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow: hidden;
+      }
+    }
+    & tbody {
+      font-family: notosansRegular;
+      margin-top: 4px;
+      & tr {
+        cursor: pointer;
+        
+        &:hover {
+          background-color: #ebedf0;
+          color: help.$main-color;
+        }
+        &.active {
+          background-color: help.$main-color;
+          color: white;
+        }
+      }
+    }
+  }
+  
+
+  &__item {
+      height: 38px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+      cursor: pointer;
+      &:hover {
+          background-color: #ccc
+      }
+      &.active {
+          background-color: #ccc
+      }
+  }
+}

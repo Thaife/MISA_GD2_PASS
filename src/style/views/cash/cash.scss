@@ -1,0 +1,31 @@
+@use "../../../style/common/help.scss";
+.cash__container {
+  background-color: #eceef1;
+  padding-left: 20px;
+  height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  &__tabs {
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    padding-top: 14px;
+    & .cash__tabs__item {
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      font-size: 1.3rem;
+      color: black;
+      cursor: pointer;
+      &:hover {
+        color: help.$main-color;
+      }
+      &.router-link-exact-active {
+        border-bottom: 4px solid help.$main-color;
+        font-family: notosansBold;
+      }
+    }
+
+  }
+}
