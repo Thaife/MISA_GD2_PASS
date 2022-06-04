@@ -1,20 +1,38 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import Employee from "../views/Employee.vue";
+import Cash from "../views/cash/Cash.vue";
+import Vendor from "../views/cash/Vendor.vue";
+import Process from "../views/cash/Process.vue";
+import Transaction from "../views/cash/Transaction.vue";
 
 const routes = [
+  { path: "", redirect: "/cash" },
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
+    path: "/overview",
+    component: Employee,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/vendor",
+    component: Vendor,
+  },
+  {
+    path: "/cash",
+    component: Cash,
+    children: [
+      { path: "", redirect: "/cash/process" },
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: "process",
+        component: Process,
+      },
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: "transaction",
+        component: Transaction,
+      },
+    ],
   },
 ];
 

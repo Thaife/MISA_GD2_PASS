@@ -1,0 +1,313 @@
+@use "../../../style/common/help.scss";
+.cash__transaction__header-wrap {
+  padding: 24px 30px 11px 0;
+}
+
+.cash__transaction {
+  overflow: scroll;
+  height: calc(100% - 65px);
+  &__header {
+    display: flex;
+    align-items: center;
+    
+    &__title {
+      font-size: 2.4rem;
+      line-height: 100%;
+      font-family: notosansBold;
+      flex: 1;
+      padding-left: 10px;
+    }
+    &__help {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+      cursor: pointer;
+      &__icon {
+        background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -984px -145px;
+        width: 23px;
+        height: 22px;
+      }
+      &__text {
+        padding-left: 5px;
+        font-size: 1.3rem;
+        color: #0075c0;
+        &:hover {
+        text-decoration: underline;
+      }
+      }
+    }
+    & .btn__add__receipt {
+      margin-left: 12px;
+
+    }
+    & .btn__add__payment {
+      margin-left: 12px;
+
+    }
+  }
+  & .cash__transaction__body {
+    
+    margin-top: 13px;
+    padding-right: 30px;
+
+    & .cash__transaction__overview {
+      position: relative;
+      display: flex;
+      transition: ease-in-out 1s;
+      &__receipt {
+        background-color: #ff7f2c;
+        height: 64px;
+        padding: 4px 10px;
+      }
+      &__payment {
+        background-color: #00a9f2;
+        height: 64px;
+        padding: 4px 10px;
+      }
+      &__fund {
+        background-color: #74cb2f;
+        height: 64px;
+        padding: 4px 10px;
+      }
+
+      & .transaction__overview__money {
+        line-height: 3.3rem;
+        font-size: 2.4rem;
+        color: white;
+        &.money__fund {
+          color: #ed1c24;
+        }
+      }
+      & .transaction__overview__title {
+        line-height: 1.9rem;
+        font-size: 1.4rem;
+        color: white;
+      }
+
+      & .cash__transaction__overview__loading {
+        position: absolute;
+        right: -12px;
+        top: -12px;
+        cursor: pointer;
+        background-color: #f2f5f8;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgb(233, 233, 233);
+        & .overview__loading__icon {
+          background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -1888px -834px;
+          width: 14px;
+          height: 15px;
+          &:hover {
+            background-position: -1931px -834px;
+          }
+        }
+        
+      }
+    }
+    & .cash__transaction__type {
+      display: flex;
+      margin-top: 20px;
+      &__item {
+        cursor: pointer;
+        height: 32px;
+        padding: 7px 16px;
+        font-size: 1.3rem;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.active {
+          font-family: notosansBold;
+          color: help.$main-color;
+        }
+        &:hover {
+          background-color: #ccc;
+        }
+      }
+    }
+    & .cash__transaction__data {
+      position: relative;
+      padding: 16px;
+      background-color: white;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      & .cash__transaction__data__left {
+        display: flex;
+        align-items: center;
+        & .down__arrow__checkall {
+          padding: 10px 12px 0;
+          &__icon {
+            background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -259px -147px;
+            width: 18px;
+            height: 18px;
+          }
+        }
+        & .batch__execution {
+          &.filter {
+            cursor: pointer;
+          }
+          z-index: 2;
+          height: 36px;
+          border-radius: 20px;
+          padding: 0 16px;
+          border: 2px solid #3b3c3f;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          position: relative;
+          font-size: 1.3rem;
+          font-weight: 600;
+          white-space: nowrap;
+          &.u-can {
+            cursor: pointer;
+            &:hover {
+              background-color: #d2d3d6;
+            }
+          }
+          
+          &__more {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          &.u-can .batch__execution__icon__wrap {
+            cursor: pointer;
+          }
+
+          &__icon__wrap {
+            padding: 8px;
+          }
+          &__icon {
+            background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -564px -365px;
+            width: 8px;
+            height: 5px;
+          }
+
+          &__box {
+            z-index: 1;
+            box-shadow: 1px 1px 4px rgb(121, 121, 121);
+            background-color: white;
+            position: absolute;
+            top: calc(100% + 2px);
+            right: 10px;
+            width: 100px;
+            font-size: 1.2rem;
+            border-radius: 2px;
+            padding: 2px 0;
+            &__item {
+              padding: 9px 6px;
+              cursor: pointer;
+              &:hover {
+                background-color: rgb(235, 235, 235);
+              }
+            }
+          }
+          
+        }
+        & .filter__text {
+          font-size: 1.3rem;
+        }
+      }
+      & .cash__transaction__data__right {
+        display: flex;
+        align-items: center;
+        & .cash__transaction__data-wrap {
+          width: 36px;
+          height: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+        & .cash__transaction__data__loading {
+          & .cash__transaction__data__icon {
+            background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -425px -201px;
+            width: 21px;
+            height: 23px;
+          }
+          &:hover .cash__transaction__data__icon {
+            background-position: -1098px -89px;
+          }
+          
+        }
+
+        & .cash__transaction__data__download {
+          & .cash__transaction__data__icon {
+            background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -705px -202px;
+            width: 23px;
+            height: 20px;
+          }
+          &:hover .cash__transaction__data__icon {
+            background-position: -705px -258px;
+          }
+        }
+
+        & .cash__transaction__data__setting {
+          & .cash__transaction__data__icon {
+            background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -90px -201px;
+            width: 20px;
+            height: 22px;
+          }
+          &:hover .cash__transaction__data__icon {
+            background-position: -90px -257px;
+          }
+        }
+      }
+      & .execute__show__overview {
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: -12px;
+        right: -12px;
+        border: 2px solid rgb(233, 233, 233);
+        background-color: #f2f5f8;
+        cursor: pointer;
+        &__icon {
+          background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -130px -364px;
+          width: 12px;
+          height: 7px;
+        }
+      }
+      
+    }
+    & .transaction__table {
+      padding: 0 20px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      height: 448px;
+    }
+    & .cash__transaction__bottom {
+      display: flex;
+      // display: none;
+      position: sticky;
+      bottom: 0px;
+      z-index: 1;
+      width: 100%;
+      padding: 0 40px 0 20px;
+      background-color: white;
+      height: 56px;
+      align-items: center;
+      justify-content: space-between;
+      & .left {
+        & .cash__transaction__total__record {
+          font-size: 1.3rem;
+        }
+      }
+
+      & .right {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

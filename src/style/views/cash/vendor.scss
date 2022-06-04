@@ -1,0 +1,131 @@
+.view-vendor {
+  padding: 0 20px;
+  height: calc(100% - 48px);
+  background-color: #eceef1;
+  & .cash__transaction {
+    height: calc(100%);
+  }
+  & .cash__transaction__header-wrap {
+    & .cash__transaction__header__title {
+      padding-left: 0;
+    }
+    & .header__back__category {
+     display: inline-flex;
+     align-items: center;
+     cursor: pointer;
+     margin: 4px 0 6px 4px;
+     &__icon {
+      background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -228px -362px;
+      width: 8px;
+      height: 12px;
+      margin-right: 4px;
+     }
+     &__text {
+       color: #0075c0;
+       font-size: 1.3rem;
+     }
+   }
+  }
+  & .batch__execution {
+    z-index: 2;
+    height: 36px;
+    border-radius: 20px;
+    padding: 0 16px;
+    border: 2px solid #3b3c3f;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: 600;
+    white-space: nowrap;
+    &.u-can {
+      cursor: pointer;
+      &:hover {
+        background-color: #d2d3d6;
+      }
+    }
+    
+    &__more {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &.u-can .batch__execution__icon__wrap {
+      cursor: pointer;
+    }
+
+    &__icon__wrap {
+      padding: 8px;
+    }
+    &__icon {
+      background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -564px -365px;
+      width: 8px;
+      height: 5px;
+    }
+
+    &__box {
+      z-index: 1;
+      box-shadow: 1px 1px 4px rgb(121, 121, 121);
+      background-color: white;
+      position: absolute;
+      top: calc(100% + 2px);
+      right: 10px;
+      width: 100px;
+      font-size: 1.2rem;
+      border-radius: 2px;
+      padding: 2px 0;
+      &__item {
+        padding: 9px 6px;
+        cursor: pointer;
+        &:hover {
+          background-color: rgb(235, 235, 235);
+        }
+      }
+    }
+    
+  }
+  & .cash__transaction__overview__item {
+    transition: linear 0.02s;
+    & .transaction__overview__icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -1856px -208px;
+      width: 12px;
+      height: 12px;
+    }
+    & .cash__transaction__overview {
+      &__overdue {
+        padding: 4px 10px 8px;
+        background-color: #ff7f2c;
+        position: relative;
+        cursor: pointer;
+        &:hover{
+          transform: translateY(-6px);
+            box-shadow: 0 6px rgba(189, 76, 2, 0.8); 
+        }
+      }
+      &__totalLiabilities {
+        position: relative;
+        padding: 4px 10px 8px;
+        background-color: #b8bcc3;
+        cursor: pointer;
+        &:hover{
+          transform: translateY(-6px);
+          box-shadow: 0 6px rgba(112, 112, 112, 0.8); 
+        }
+
+      }
+      &__moneyPaid {
+        padding: 4px 10px 8px;
+        background-color: #74cb2f;
+      }
+    }
+    
+  }
+  & div.cash__transaction__bottom {
+    //bottom: -20px !important;
+  }
+}

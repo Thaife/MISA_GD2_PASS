@@ -1,0 +1,330 @@
+@use '../../style/common/help.scss';
+.base__table__wrap {
+    position: relative;
+    // padding-bottom: 57px;
+    width: 100%;
+    padding-right: 8px;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    & .employ__table {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        position: relative;
+        & .no__content {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+        & table {
+          // padding-bottom: 100px;
+            //position: relative;
+            height: 100%;
+            width: 100%;
+            font-size: 1.3rem;
+            border-spacing: 0;
+
+            & .table__row__header {
+                position: sticky;
+                top: 0;
+                z-index: 1;
+                color: #111111;
+                & th {
+                    border-bottom: 1px solid #c7c7c7;
+                    & + th {
+                        border-left: 1px solid #c7c7c7;
+                    }
+                    &:first-child {
+                        border-right: 1px solid #c7c7c7;
+                    }
+                    &:last-child {
+                        position: sticky;
+                        right: 0;
+                    }
+                    &:nth-child(2) {
+                        border-left: none;
+                    }
+                }
+            }
+            & thead {
+                & tr th:last-child {
+                    z-index: 10;
+                }
+                & tr {
+                  & .row__check-box {
+                    display: flex;
+                    align-items: center;
+                  }
+                    & .row__check-box.active div {
+                            background: url("@/assets/Resource/img/Sprites.64af8f61.svg") no-repeat -1225px -363px;
+                            width: 14px;
+                            height: 11px;
+                    }
+                }
+                & th div {
+                  white-space : nowrap;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                }
+
+            }
+            & tbody {
+                & td:first-child {
+                    border-right: 1px dotted #c7c7c7;
+                    position: sticky;
+                    left: 0;
+                }
+                & td:last-child {
+                    border-right: none;
+                    position: sticky;
+                    right: 0;
+                    z-index: 0;
+                }
+                & td:nth-child(2) {
+                    border-left: none;
+                }
+                & td+td {
+                    border-left: 1px dotted #c7c7c7;
+                }
+                & tr {
+                  &.focus {
+                    & td {
+
+                      background-color: #e5f3ff;
+                    }
+                  }
+                    &:hover td {
+                        background-color: #f2f9ff;
+                    }
+                }
+                & td {
+                }
+                & td .col__link {
+                  color:#0075c0;
+                  cursor: pointer;
+                  &:hover {
+                    text-decoration: underline;
+                  }
+                }
+            }
+
+            & tfoot {
+              & th {
+                position: sticky;
+                border-top: 1px solid #c7c7c7;
+                bottom: 0;
+              }
+              & th:first-child {
+                position: sticky;
+                left: 0;
+                bottom: 0;
+                z-index: 1;
+              }
+              & th:last-child {
+                  border-right: none;
+                  position: sticky;
+                  right: 0;
+                  bottom: 0;
+                  z-index: 1;
+                }
+              & th:nth-child(2) {
+                  border-left: none;
+              }
+              & tr {
+                  
+              }
+            }
+            
+            & td {
+                background-color: white;
+                border-bottom: 1px solid #c7c7c7;
+                & div {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2; /* number of lines to show */
+                            line-clamp: 2; 
+                    -webkit-box-orient: vertical;
+                }
+            }
+            & tbody td .row__check-box{
+                display: flex;
+                align-items: center;
+            }
+            
+
+            & .table__check__box {
+                position: sticky;
+                left: 0;
+                z-index: 999;
+            }
+
+            & tr {
+                &.active td {
+                    background-color: #e5f3ff;
+                    & .row__check-box div {
+                        background: url("@/assets/Resource/img/Sprites.64af8f61.svg") no-repeat -1225px -363px;
+                        width: 14px;
+                        height: 11px;
+                    }
+                }
+                & th {
+                    font-size: 1.2rem;
+                    background-color: #e5e8ec;
+                }
+                & td {
+                }
+                & .row__check-box__align {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                & .row__check-box {
+                    width: 17px;
+                    height: 16px;
+                    border-radius: 2px;
+                    border: 1px solid help.$border-table;
+                    background-color: white;
+                    cursor: pointer;
+                    &.active {
+                        // background: url("@/assets/Resource/img/Sprites.64af8f61.svg") no-repeat -1225px -363px;
+                        // width: 14px;
+                        // height: 11px;
+                    }
+                }
+                &:last-child td {
+                    border-bottom: none;
+                }
+            }
+            & .row__func {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 12px;
+                z-index: 1;
+                & span {
+                    cursor: pointer;
+                    color: #0075c0;
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                }
+                &__box {
+                    position: relative;
+                    & .icon__wrap {
+                        box-sizing: border-box;
+                        width: 24px;
+                        height: 20px;
+                        margin-left: 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                    }
+                    & .icon__wrap.active {
+                        border: 1px solid blue;
+                    }
+                    & .icon {
+                        background: url('@/assets/Resource/img/Sprites.64af8f61.svg') no-repeat -900px -365px;
+	                    width: 8px;
+	                    height: 5px;
+                    }
+                    & .list__func {
+                        z-index: 100;
+                        background-color: white;
+                        position: absolute;
+                        border: 1px solid help.$border-table;
+                        right: 0;
+                        top: calc(100% + 4px);
+                        box-shadow: 0 0 4px rgb(139, 139, 139);
+                        display: none;
+                        &__item {
+                            font-weight: 400;
+                            min-width: 120px;
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            padding: 4px 8px;
+                            &:hover {
+                                background-color: rgb(231, 231, 231);
+                                color: rgb(3, 182, 3);
+                            }
+                        }
+                    }
+                    & .list__func.show {
+
+                        display: block;
+                    }
+                }
+            }
+        }
+        & table,tr, th, td {
+            & tr, th, td {
+                padding: 10px 10px;
+                //border: 1px solid help.$border-table;
+                border-collapse: separate;
+                line-height: 1.4;
+            }
+            
+        }
+        
+        
+    }
+
+    & .v-messages.theme--light.success--text {
+        display: none;
+    }
+    & .v-input__slot {
+        margin-bottom: 0;
+    }
+}
+.drop__box__func {
+  position: fixed;
+  z-index: 1;
+  color: #111111;
+  font-size: 1.3rem;
+  & .drop__box {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #babec5;
+    &__item {
+      cursor: pointer;
+      display: flex;
+      line-height: 1.8rem;
+      min-width: 100px;
+      align-items: center;
+      padding: 5px 10px;
+      transition: linear 0.2s;
+      &:hover {
+        background-color: #e7e7e7;
+        color: rgb(6, 179, 6);
+      }
+    }
+  }
+}
+
+
+@-webkit-keyframes moving-gradient {
+    0% {
+      background-position: -250px 0;
+    }
+    100% {
+      background-position: 250px 0;
+    }
+  }
+  .loading-1 {
+    height: 18px;
+    background: linear-gradient(to right, #eee 20%, #ddd 50%, #eee 80%);
+    background-size: 500px 100px;
+    animation-name: moving-gradient;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
